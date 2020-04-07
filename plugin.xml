@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated FailureTraceMetaModel -->
+      <package
+            uri="com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel"
+            class="com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.FailureTraceMetaModelPackage"
+            genModel="model/FailureTraceMetaModel.xcore"/>
+   </extension>
+   <extension
+         point="org.eclipse.capra.configuration.traceabilityMetaModel">
+      <TraceabilityMetaModelAdapter
+            class="com.criticalsoftware.panorama.failurelogic.traces.FailureTraceMetaModelAdapter">
+      </TraceabilityMetaModelAdapter>
+   </extension>
+   <extension
+         point="org.eclipse.capra.configuration.artifactMetaModel">
+      <ArtifactMetaModelAdapter
+            class="com.criticalsoftware.panorama.failurelogic.traces.FailureMetaModelAdapter">
+      </ArtifactMetaModelAdapter>
+   </extension>
+
+</plugin>

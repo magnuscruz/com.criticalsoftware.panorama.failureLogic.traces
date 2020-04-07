@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.criticalsoftware.panorama.failureLogic.traces/src-gen"
+    modelPluginID="com.criticalsoftware.panorama.failureLogic.traces" runtimeJar="true"
+    modelName="FailureTraceMetaModel" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="" booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.ecore.xcore.importer"
+    containmentProxies="true" complianceLevel="8.0" language="en" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../com.criticalsoftware.panorama.failureLogic/failureLogic.genmodel#//failureLogic ../../com.criticalsoftware.panorama.failureLogic/failureLogic.genmodel#//base ../../org.eclipse.capra.generic.tracemodel/model/generictrace.xcore#/1/tracemodel ../../org.eclipse.app4mc.amalthea.model/model/amalthea.xcore#/1/model"
+    operationReflection="true" importOrganizing="true" decoration="Live" oSGiCompatible="true"
+    eclipsePlatformVersion="Juno" autoResizeProperties="true" autoExpandProperties="10"
+    findAction="true" expandAllAction="true" collapseAllAction="true" revertAction="true">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter.xmi">
+    <genAnnotations source="selectedPackages">
+      <details key="http://www.eclipse.org/emf/2002/Ecore" value="EcoreXMI.xsd"/>
+    </genAnnotations>
+    <details key="directoryURI" value="."/>
+  </genAnnotations>
+  <foreignModel>FailureTraceMetaModel.xcore</foreignModel>
+  <modelPluginVariables>org.eclipse.xtext.xbase.lib</modelPluginVariables>
+  <modelPluginVariables>org.eclipse.emf.ecore.xcore.lib</modelPluginVariables>
+  <genPackages prefix="FailureTraceMetaModel" basePackage="com.criticalsoftware.panorama.failurelogic"
+      disposableProviderFactory="true" ecorePackage="FailureTraceMetaModel.ecore#/">
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//FailureTraceModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//FailureTraceModel/propagateTraces"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//FailureTraceModel/safetyTraces"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//PropagateTo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FailureTraceMetaModel.ecore#//PropagateTo/failure"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="FailureTraceMetaModel.ecore#//SafetyTraceability"/>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//Failure2Process">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Process/failure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Process/process"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//Failure2Runnable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Runnable/failure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Runnable/runnable"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//Failure2Event">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Event/failure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Event/event"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//Failure2Semaphore">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Semaphore/failure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Semaphore/semaphore"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//Failure2Label">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Label/failure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Label/label"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//Failure2Constraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Constraint/failure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Constraint/constraint"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//FailureModel2Task">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//FailureModel2Task/failureModel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//FailureModel2Task/runnable"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//FailureModel2ConstraintsModel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//FailureModel2ConstraintsModel/failureModel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//FailureModel2ConstraintsModel/constraintsModel"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//Failure2Component">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Component/failure"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//Failure2Component/component"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//FailureModel2Component">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//FailureModel2Component/failureModel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//FailureModel2Component/component"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
