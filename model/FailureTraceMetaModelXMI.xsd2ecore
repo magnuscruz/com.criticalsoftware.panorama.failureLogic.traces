@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="FailureTraceMetaModel.ecore#/" outputs="FailureTraceMetaModelXMI.xsd#/">
+  <nested inputs="FailureTraceMetaModel.ecore#/" outputs="FailureTraceMetaModelXMI.xsd#/">
+    <nested inputs="FailureTraceMetaModel.ecore#//GenericTraceModel" outputs="FailureTraceMetaModelXMI.xsd#//GenericTraceModel;XSDComplexTypeDefinition">
+      <nested inputs="FailureTraceMetaModel.ecore#//GenericTraceModel/traces" outputs="FailureTraceMetaModelXMI.xsd#//GenericTraceModel;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//GenericTraceModel" outputs="FailureTraceMetaModelXMI.xsd#//GenericTraceModel;XSDElementDeclaration"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//FailureTraceModel" outputs="FailureTraceMetaModelXMI.xsd#//FailureTraceModel;XSDComplexTypeDefinition=1">
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureTraceModel/propagateTraces"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureTraceModel;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureTraceModel/safetyTraces"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureTraceModel;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//FailureTraceModel" outputs="FailureTraceMetaModelXMI.xsd#//FailureTraceModel;XSDElementDeclaration=1"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//RelatedTo" outputs="FailureTraceMetaModelXMI.xsd#//RelatedTo;XSDComplexTypeDefinition=2">
+      <nested inputs="FailureTraceMetaModel.ecore#//RelatedTo/name" outputs="FailureTraceMetaModelXMI.xsd#//RelatedTo;XSDComplexTypeDefinition=2/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//RelatedTo/item" outputs="FailureTraceMetaModelXMI.xsd#//RelatedTo;XSDComplexTypeDefinition=2/XSDAttributeUse=2"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//RelatedTo/item" outputs="FailureTraceMetaModelXMI.xsd#//RelatedTo;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//RelatedTo" outputs="FailureTraceMetaModelXMI.xsd#//RelatedTo;XSDElementDeclaration=2"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//PropagateTo" outputs="FailureTraceMetaModelXMI.xsd#//PropagateTo;XSDComplexTypeDefinition=3">
+      <nested inputs="FailureTraceMetaModel.ecore#//PropagateTo/failure" outputs="FailureTraceMetaModelXMI.xsd#//PropagateTo;XSDComplexTypeDefinition=3/XSDAttributeUse"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//PropagateTo" outputs="FailureTraceMetaModelXMI.xsd#//PropagateTo;XSDElementDeclaration=3"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//SafetyTraceability" outputs="FailureTraceMetaModelXMI.xsd#//SafetyTraceability;XSDComplexTypeDefinition=4"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//SafetyTraceability" outputs="FailureTraceMetaModelXMI.xsd#//SafetyTraceability;XSDElementDeclaration=4"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Process" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Process;XSDComplexTypeDefinition=5">
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Process/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Process;XSDComplexTypeDefinition=5/XSDAttributeUse"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Process/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Process;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Process/process" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Process;XSDComplexTypeDefinition=5/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Process/process" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Process;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Process" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Process;XSDElementDeclaration=5"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Runnable" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Runnable;XSDComplexTypeDefinition=6">
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Runnable/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Runnable;XSDComplexTypeDefinition=6/XSDAttributeUse"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Runnable/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Runnable;XSDComplexTypeDefinition=6/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Runnable/runnable" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Runnable;XSDComplexTypeDefinition=6/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Runnable/runnable" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Runnable;XSDComplexTypeDefinition=6/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Runnable" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Runnable;XSDElementDeclaration=6"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Event" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Event;XSDComplexTypeDefinition=7">
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Event/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Event;XSDComplexTypeDefinition=7/XSDAttributeUse"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Event/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Event;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Event/event" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Event;XSDComplexTypeDefinition=7/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Event/event" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Event;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Event" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Event;XSDElementDeclaration=7"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Semaphore" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Semaphore;XSDComplexTypeDefinition=8">
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Semaphore/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Semaphore;XSDComplexTypeDefinition=8/XSDAttributeUse"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Semaphore/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Semaphore;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Semaphore/semaphore" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Semaphore;XSDComplexTypeDefinition=8/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Semaphore/semaphore" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Semaphore;XSDComplexTypeDefinition=8/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Semaphore" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Semaphore;XSDElementDeclaration=8"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Label" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Label;XSDComplexTypeDefinition=9">
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Label/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Label;XSDComplexTypeDefinition=9/XSDAttributeUse"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Label/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Label;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Label/label" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Label;XSDComplexTypeDefinition=9/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Label/label" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Label;XSDComplexTypeDefinition=9/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Label" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Label;XSDElementDeclaration=9"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Constraint" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Constraint;XSDComplexTypeDefinition=10">
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Constraint/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Constraint;XSDComplexTypeDefinition=10/XSDAttributeUse"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Constraint/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Constraint;XSDComplexTypeDefinition=10/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Constraint/constraint"
+          outputs="FailureTraceMetaModelXMI.xsd#//Failure2Constraint;XSDComplexTypeDefinition=10/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Constraint/constraint"
+          outputs="FailureTraceMetaModelXMI.xsd#//Failure2Constraint;XSDComplexTypeDefinition=10/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Constraint" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Constraint;XSDElementDeclaration=10"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Task" outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Task;XSDComplexTypeDefinition=11">
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Task/failureModel"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Task;XSDComplexTypeDefinition=11/XSDAttributeUse"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Task/failureModel"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Task;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Task/runnable" outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Task;XSDComplexTypeDefinition=11/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Task/runnable" outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Task;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Task" outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Task;XSDElementDeclaration=11"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2ConstraintsModel" outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2ConstraintsModel;XSDComplexTypeDefinition=12">
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2ConstraintsModel/failureModel"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2ConstraintsModel;XSDComplexTypeDefinition=12/XSDAttributeUse"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2ConstraintsModel/failureModel"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2ConstraintsModel;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2ConstraintsModel/constraintsModel"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2ConstraintsModel;XSDComplexTypeDefinition=12/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2ConstraintsModel/constraintsModel"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2ConstraintsModel;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2ConstraintsModel" outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2ConstraintsModel;XSDElementDeclaration=12"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Component" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Component;XSDComplexTypeDefinition=13">
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Component/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Component;XSDComplexTypeDefinition=13/XSDAttributeUse"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Component/failure" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Component;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Component/component" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Component;XSDComplexTypeDefinition=13/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//Failure2Component/component" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Component;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//Failure2Component" outputs="FailureTraceMetaModelXMI.xsd#//Failure2Component;XSDElementDeclaration=13"/>
+    <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Component" outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Component;XSDComplexTypeDefinition=14">
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Component/failureModel"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Component;XSDComplexTypeDefinition=14/XSDAttributeUse"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Component/failureModel"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Component;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Component/component"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Component;XSDComplexTypeDefinition=14/XSDAttributeUse=1"/>
+      <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Component/component"
+          outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Component;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=1"/>
+    </nested>
+    <nested inputs="FailureTraceMetaModel.ecore#//FailureModel2Component" outputs="FailureTraceMetaModelXMI.xsd#//FailureModel2Component;XSDElementDeclaration=14"/>
+  </nested>
+</xsd2ecore:XSD2EcoreMappingRoot>

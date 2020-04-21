@@ -56,7 +56,9 @@ public class FailureTraceMetaModelFactoryImpl extends EFactoryImpl implements Fa
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case FailureTraceMetaModelPackage.GENERIC_TRACE_MODEL: return createGenericTraceModel();
 			case FailureTraceMetaModelPackage.FAILURE_TRACE_MODEL: return createFailureTraceModel();
+			case FailureTraceMetaModelPackage.RELATED_TO: return createRelatedTo();
 			case FailureTraceMetaModelPackage.PROPAGATE_TO: return createPropagateTo();
 			case FailureTraceMetaModelPackage.FAILURE2_PROCESS: return createFailure2Process();
 			case FailureTraceMetaModelPackage.FAILURE2_RUNNABLE: return createFailure2Runnable();
@@ -64,9 +66,9 @@ public class FailureTraceMetaModelFactoryImpl extends EFactoryImpl implements Fa
 			case FailureTraceMetaModelPackage.FAILURE2_SEMAPHORE: return createFailure2Semaphore();
 			case FailureTraceMetaModelPackage.FAILURE2_LABEL: return createFailure2Label();
 			case FailureTraceMetaModelPackage.FAILURE2_CONSTRAINT: return createFailure2Constraint();
+			case FailureTraceMetaModelPackage.FAILURE2_COMPONENT: return createFailure2Component();
 			case FailureTraceMetaModelPackage.FAILURE_MODEL2_TASK: return createFailureModel2Task();
 			case FailureTraceMetaModelPackage.FAILURE_MODEL2_CONSTRAINTS_MODEL: return createFailureModel2ConstraintsModel();
-			case FailureTraceMetaModelPackage.FAILURE2_COMPONENT: return createFailure2Component();
 			case FailureTraceMetaModelPackage.FAILURE_MODEL2_COMPONENT: return createFailureModel2Component();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -78,9 +80,29 @@ public class FailureTraceMetaModelFactoryImpl extends EFactoryImpl implements Fa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public GenericTraceModel createGenericTraceModel() {
+		GenericTraceModelImpl genericTraceModel = new GenericTraceModelImpl();
+		return genericTraceModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public FailureTraceModel createFailureTraceModel() {
 		FailureTraceModelImpl failureTraceModel = new FailureTraceModelImpl();
 		return failureTraceModel;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RelatedTo createRelatedTo() {
+		RelatedToImpl relatedTo = new RelatedToImpl();
+		return relatedTo;
 	}
 
 	/**
@@ -158,6 +180,16 @@ public class FailureTraceMetaModelFactoryImpl extends EFactoryImpl implements Fa
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Failure2Component createFailure2Component() {
+		Failure2ComponentImpl failure2Component = new Failure2ComponentImpl();
+		return failure2Component;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public FailureModel2Task createFailureModel2Task() {
 		FailureModel2TaskImpl failureModel2Task = new FailureModel2TaskImpl();
 		return failureModel2Task;
@@ -171,16 +203,6 @@ public class FailureTraceMetaModelFactoryImpl extends EFactoryImpl implements Fa
 	public FailureModel2ConstraintsModel createFailureModel2ConstraintsModel() {
 		FailureModel2ConstraintsModelImpl failureModel2ConstraintsModel = new FailureModel2ConstraintsModelImpl();
 		return failureModel2ConstraintsModel;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Failure2Component createFailure2Component() {
-		Failure2ComponentImpl failure2Component = new Failure2ComponentImpl();
-		return failure2Component;
 	}
 
 	/**

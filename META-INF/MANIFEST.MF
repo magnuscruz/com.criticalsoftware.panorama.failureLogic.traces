@@ -15,10 +15,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.emf.ecore.xcore.lib,
- org.eclipse.capra.core,
  org.slf4j.api;bundle-version="1.7.2",
  org.eclipse.capra.generic.artifactmodel;bundle-version="0.7.1",
- org.eclipse.capra.generic.tracemodel;bundle-version="0.7.1";visibility:=reexport,
  org.eclipse.app4mc.amalthea.model;bundle-version="0.9.7";visibility:=reexport,
- com.criticalsoftware.panorama.failureLogic;bundle-version="1.0.0";visibility:=reexport
+ com.criticalsoftware.panorama.failureLogic;bundle-version="1.0.0";visibility:=reexport,
+ org.eclipse.capra.core;bundle-version="0.7.1",
+ org.eclipse.sirius.diagram;bundle-version="6.0.0"
 Bundle-ActivationPolicy: lazy

@@ -4,9 +4,6 @@ package com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.util;
 
 import com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.*;
 
-import org.eclipse.capra.generic.tracemodel.GenericTraceModel;
-import org.eclipse.capra.generic.tracemodel.RelatedTo;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -69,10 +66,22 @@ public class FailureTraceMetaModelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case FailureTraceMetaModelPackage.GENERIC_TRACE_MODEL: {
+				GenericTraceModel genericTraceModel = (GenericTraceModel)theEObject;
+				T result = caseGenericTraceModel(genericTraceModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FailureTraceMetaModelPackage.FAILURE_TRACE_MODEL: {
 				FailureTraceModel failureTraceModel = (FailureTraceModel)theEObject;
 				T result = caseFailureTraceModel(failureTraceModel);
 				if (result == null) result = caseGenericTraceModel(failureTraceModel);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case FailureTraceMetaModelPackage.RELATED_TO: {
+				RelatedTo relatedTo = (RelatedTo)theEObject;
+				T result = caseRelatedTo(relatedTo);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -131,6 +140,13 @@ public class FailureTraceMetaModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case FailureTraceMetaModelPackage.FAILURE2_COMPONENT: {
+				Failure2Component failure2Component = (Failure2Component)theEObject;
+				T result = caseFailure2Component(failure2Component);
+				if (result == null) result = caseSafetyTraceability(failure2Component);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case FailureTraceMetaModelPackage.FAILURE_MODEL2_TASK: {
 				FailureModel2Task failureModel2Task = (FailureModel2Task)theEObject;
 				T result = caseFailureModel2Task(failureModel2Task);
@@ -142,13 +158,6 @@ public class FailureTraceMetaModelSwitch<T> extends Switch<T> {
 				FailureModel2ConstraintsModel failureModel2ConstraintsModel = (FailureModel2ConstraintsModel)theEObject;
 				T result = caseFailureModel2ConstraintsModel(failureModel2ConstraintsModel);
 				if (result == null) result = caseSafetyTraceability(failureModel2ConstraintsModel);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case FailureTraceMetaModelPackage.FAILURE2_COMPONENT: {
-				Failure2Component failure2Component = (Failure2Component)theEObject;
-				T result = caseFailure2Component(failure2Component);
-				if (result == null) result = caseSafetyTraceability(failure2Component);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -164,6 +173,21 @@ public class FailureTraceMetaModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Generic Trace Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Generic Trace Model</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGenericTraceModel(GenericTraceModel object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Failure Trace Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -175,6 +199,21 @@ public class FailureTraceMetaModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFailureTraceModel(FailureTraceModel object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Related To</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Related To</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRelatedTo(RelatedTo object) {
 		return null;
 	}
 
@@ -299,6 +338,21 @@ public class FailureTraceMetaModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Failure2 Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Failure2 Component</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFailure2Component(Failure2Component object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Failure Model2 Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -329,21 +383,6 @@ public class FailureTraceMetaModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Failure2 Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Failure2 Component</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFailure2Component(Failure2Component object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Failure Model2 Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -355,36 +394,6 @@ public class FailureTraceMetaModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFailureModel2Component(FailureModel2Component object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Generic Trace Model</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Generic Trace Model</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGenericTraceModel(GenericTraceModel object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Related To</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Related To</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRelatedTo(RelatedTo object) {
 		return null;
 	}
 

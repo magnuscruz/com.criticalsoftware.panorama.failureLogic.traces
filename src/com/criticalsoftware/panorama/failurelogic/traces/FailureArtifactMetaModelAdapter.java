@@ -10,7 +10,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EObject;
 
-public class FailureMetaModelAdapter extends AbstractArtifactMetaModelAdapter {
+public class FailureArtifactMetaModelAdapter extends AbstractArtifactMetaModelAdapter {
 
 	private ArtifactWrapperContainer getContainer(EObject artifactModel) {
 		return (ArtifactWrapperContainer) artifactModel;

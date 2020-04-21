@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:FailureTraceMetaModel="com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel" xmlns:am="http://app4mc.eclipse.org/amalthea/0.9.7" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:failureLogic="http://www.deis-project.eu/ode/failureLogic" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel">
+  <xsd:import namespace="http://app4mc.eclipse.org/amalthea/0.9.7" schemaLocation="model.xsd"/>
+  <xsd:import namespace="http://www.deis-project.eu/ode/failureLogic" schemaLocation="failureLogic.xsd"/>
+  <xsd:import namespace="http://www.eclipse.org/emf/2002/Ecore" schemaLocation="ecore.xsd"/>
+  <xsd:import namespace="http://www.omg.org/XMI" schemaLocation="platform:/plugin/org.eclipse.emf.ecore/model/XMI.xsd"/>
+  <xsd:complexType name="GenericTraceModel">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="traces" type="FailureTraceMetaModel:RelatedTo"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="GenericTraceModel" type="FailureTraceMetaModel:GenericTraceModel"/>
+  <xsd:complexType name="FailureTraceModel">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:GenericTraceModel">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="propagateTraces" type="FailureTraceMetaModel:PropagateTo"/>
+          <xsd:element name="safetyTraces" type="FailureTraceMetaModel:SafetyTraceability"/>
+        </xsd:choice>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FailureTraceModel" type="FailureTraceMetaModel:FailureTraceModel"/>
+  <xsd:complexType name="RelatedTo">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element name="item" type="ecore:EObject"/>
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="item" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="RelatedTo" type="FailureTraceMetaModel:RelatedTo"/>
+  <xsd:complexType name="PropagateTo">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:RelatedTo">
+        <xsd:attribute name="failure" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="PropagateTo" type="FailureTraceMetaModel:PropagateTo"/>
+  <xsd:complexType abstract="true" name="SafetyTraceability">
+    <xsd:choice maxOccurs="unbounded" minOccurs="0">
+      <xsd:element ref="xmi:Extension"/>
+    </xsd:choice>
+    <xsd:attribute ref="xmi:id"/>
+    <xsd:attributeGroup ref="xmi:ObjectAttribs"/>
+  </xsd:complexType>
+  <xsd:element name="SafetyTraceability" type="FailureTraceMetaModel:SafetyTraceability"/>
+  <xsd:complexType name="Failure2Process">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:SafetyTraceability">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="failure" type="failureLogic:Failure"/>
+          <xsd:element name="process" type="am:AbstractProcess"/>
+        </xsd:choice>
+        <xsd:attribute name="failure" type="xsd:string"/>
+        <xsd:attribute name="process" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Failure2Process" type="FailureTraceMetaModel:Failure2Process"/>
+  <xsd:complexType name="Failure2Runnable">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:SafetyTraceability">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="failure" type="failureLogic:Failure"/>
+          <xsd:element name="runnable" type="am:Runnable"/>
+        </xsd:choice>
+        <xsd:attribute name="failure" type="xsd:string"/>
+        <xsd:attribute name="runnable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Failure2Runnable" type="FailureTraceMetaModel:Failure2Runnable"/>
+  <xsd:complexType name="Failure2Event">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:SafetyTraceability">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="failure" type="failureLogic:Failure"/>
+          <xsd:element name="event" type="am:OsEvent"/>
+        </xsd:choice>
+        <xsd:attribute name="failure" type="xsd:string"/>
+        <xsd:attribute name="event" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Failure2Event" type="FailureTraceMetaModel:Failure2Event"/>
+  <xsd:complexType name="Failure2Semaphore">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:SafetyTraceability">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="failure" type="failureLogic:Failure"/>
+          <xsd:element name="semaphore" type="am:Semaphore"/>
+        </xsd:choice>
+        <xsd:attribute name="failure" type="xsd:string"/>
+        <xsd:attribute name="semaphore" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Failure2Semaphore" type="FailureTraceMetaModel:Failure2Semaphore"/>
+  <xsd:complexType name="Failure2Label">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:SafetyTraceability">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="failure" type="failureLogic:Failure"/>
+          <xsd:element name="label" type="am:Label"/>
+        </xsd:choice>
+        <xsd:attribute name="failure" type="xsd:string"/>
+        <xsd:attribute name="label" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Failure2Label" type="FailureTraceMetaModel:Failure2Label"/>
+  <xsd:complexType name="Failure2Constraint">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:SafetyTraceability">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="failure" type="failureLogic:Failure"/>
+          <xsd:element name="constraint" type="am:AffinityConstraint"/>
+        </xsd:choice>
+        <xsd:attribute name="failure" type="xsd:string"/>
+        <xsd:attribute name="constraint" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Failure2Constraint" type="FailureTraceMetaModel:Failure2Constraint"/>
+  <xsd:complexType name="FailureModel2Task">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:SafetyTraceability">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="failureModel" type="failureLogic:FailureModel"/>
+          <xsd:element name="runnable" type="am:ComponentInstance"/>
+        </xsd:choice>
+        <xsd:attribute name="failureModel" type="xsd:string"/>
+        <xsd:attribute name="runnable" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FailureModel2Task" type="FailureTraceMetaModel:FailureModel2Task"/>
+  <xsd:complexType name="FailureModel2ConstraintsModel">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:SafetyTraceability">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="failureModel" type="failureLogic:FailureModel"/>
+          <xsd:element name="constraintsModel" type="am:ConstraintsModel"/>
+        </xsd:choice>
+        <xsd:attribute name="failureModel" type="xsd:string"/>
+        <xsd:attribute name="constraintsModel" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FailureModel2ConstraintsModel" type="FailureTraceMetaModel:FailureModel2ConstraintsModel"/>
+  <xsd:complexType name="Failure2Component">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:SafetyTraceability">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="failure" type="failureLogic:Failure"/>
+          <xsd:element name="component" type="am:ComponentInstance"/>
+        </xsd:choice>
+        <xsd:attribute name="failure" type="xsd:string"/>
+        <xsd:attribute name="component" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="Failure2Component" type="FailureTraceMetaModel:Failure2Component"/>
+  <xsd:complexType name="FailureModel2Component">
+    <xsd:complexContent>
+      <xsd:extension base="FailureTraceMetaModel:SafetyTraceability">
+        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+          <xsd:element name="failureModel" type="failureLogic:FailureModel"/>
+          <xsd:element name="component" type="am:ComponentInstance"/>
+        </xsd:choice>
+        <xsd:attribute name="failureModel" type="xsd:string"/>
+        <xsd:attribute name="component" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="FailureModel2Component" type="FailureTraceMetaModel:FailureModel2Component"/>
+</xsd:schema>

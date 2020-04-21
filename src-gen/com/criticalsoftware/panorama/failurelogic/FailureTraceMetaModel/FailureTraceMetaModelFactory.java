@@ -22,6 +22,15 @@ public interface FailureTraceMetaModelFactory extends EFactory {
 	FailureTraceMetaModelFactory eINSTANCE = com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.impl.FailureTraceMetaModelFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Generic Trace Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Generic Trace Model</em>'.
+	 * @generated
+	 */
+	GenericTraceModel createGenericTraceModel();
+
+	/**
 	 * Returns a new object of class '<em>Failure Trace Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29,6 +38,15 @@ public interface FailureTraceMetaModelFactory extends EFactory {
 	 * @generated
 	 */
 	FailureTraceModel createFailureTraceModel();
+
+	/**
+	 * Returns a new object of class '<em>Related To</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Related To</em>'.
+	 * @generated
+	 */
+	RelatedTo createRelatedTo();
 
 	/**
 	 * Returns a new object of class '<em>Propagate To</em>'.
@@ -94,6 +112,15 @@ public interface FailureTraceMetaModelFactory extends EFactory {
 	Failure2Constraint createFailure2Constraint();
 
 	/**
+	 * Returns a new object of class '<em>Failure2 Component</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Failure2 Component</em>'.
+	 * @generated
+	 */
+	Failure2Component createFailure2Component();
+
+	/**
 	 * Returns a new object of class '<em>Failure Model2 Task</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,15 +137,6 @@ public interface FailureTraceMetaModelFactory extends EFactory {
 	 * @generated
 	 */
 	FailureModel2ConstraintsModel createFailureModel2ConstraintsModel();
-
-	/**
-	 * Returns a new object of class '<em>Failure2 Component</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Failure2 Component</em>'.
-	 * @generated
-	 */
-	Failure2Component createFailure2Component();
 
 	/**
 	 * Returns a new object of class '<em>Failure Model2 Component</em>'.

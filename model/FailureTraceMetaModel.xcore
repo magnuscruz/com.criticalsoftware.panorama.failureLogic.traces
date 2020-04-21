@@ -1,6 +1,8 @@
  
 package com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel
 
+import com.criticalsoftware.panorama.failureLogic.Failure
+import com.criticalsoftware.panorama.failureLogic.FailureModel
 import org.eclipse.app4mc.amalthea.model.AbstractProcess
 import org.eclipse.app4mc.amalthea.model.AffinityConstraint
 import org.eclipse.app4mc.amalthea.model.ComponentInstance
@@ -9,51 +11,60 @@ import org.eclipse.app4mc.amalthea.model.Label
 import org.eclipse.app4mc.amalthea.model.OsEvent
 import org.eclipse.app4mc.amalthea.model.Runnable
 import org.eclipse.app4mc.amalthea.model.Semaphore
-import org.eclipse.capra.generic.tracemodel.GenericTraceModel
-import org.eclipse.capra.generic.tracemodel.RelatedTo
-import com.criticalsoftware.panorama.failureLogic.Failure
-import com.criticalsoftware.panorama.failureLogic.FailureModel
+import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.emf.ecore.EObject
+
+class GenericTraceModel{
+	contains RelatedTo[0..*] traces
+} 
 
 class FailureTraceModel extends GenericTraceModel {
 	contains PropagateTo[0..*] propagateTraces
 	contains SafetyTraceability[0..*] safetyTraces
 } 
 
+class RelatedTo {
+	derived String ID get {
+			EcoreUtil.generateUUID();
+	}
+	String name
+	refers EObject [0..*] item 
+}    
+
 class PropagateTo extends RelatedTo {	
-	String failure
+	refers Failure[1] failure
 }
 
 abstract class SafetyTraceability {
+	refers Failure[1] failure
 } 
 
 class Failure2Process extends SafetyTraceability {
-	refers Failure[1] failure
 	refers AbstractProcess[1] process
 }
 
 class Failure2Runnable extends SafetyTraceability{
-	refers Failure[1] failure
 	refers Runnable[1] runnable
 }
 
 class Failure2Event extends SafetyTraceability{
-	refers Failure[1] failure
 	refers OsEvent[1] event
 }
 
 class Failure2Semaphore extends SafetyTraceability{
-	refers Failure[1] failure
 	refers Semaphore[1] semaphore
 }
 
 class Failure2Label extends SafetyTraceability{
-	refers Failure[1] failure
 	refers Label[1] label
 }
 
 class Failure2Constraint extends SafetyTraceability{
-	refers Failure[1] failure
 	refers AffinityConstraint[1] constraint
+}
+
+class Failure2Component extends SafetyTraceability{
+	refers ComponentInstance[1] component
 }
 
 class FailureModel2Task extends SafetyTraceability{
@@ -64,11 +75,6 @@ class FailureModel2Task extends SafetyTraceability{
 class FailureModel2ConstraintsModel extends SafetyTraceability{
 	refers FailureModel[1] failureModel
 	refers ConstraintsModel[1] constraintsModel
-}
-
-class Failure2Component extends SafetyTraceability{
-	refers Failure[1] failure
-	refers ComponentInstance[1] component
 }
 
 class FailureModel2Component extends SafetyTraceability{

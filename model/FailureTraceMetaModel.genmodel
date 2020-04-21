@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.criticalsoftware.panorama.failureLogic.traces/src-gen"
-    modelPluginID="com.criticalsoftware.panorama.failureLogic.traces" runtimeJar="true"
-    modelName="FailureTraceMetaModel" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    testsDirectory="" booleanFlagsField="eFlags" booleanFlagsReservedBits="8" importerID="org.eclipse.emf.ecore.xcore.importer"
-    containmentProxies="true" complianceLevel="8.0" language="en" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../com.criticalsoftware.panorama.failureLogic/failureLogic.genmodel#//failureLogic ../../com.criticalsoftware.panorama.failureLogic/failureLogic.genmodel#//base ../../org.eclipse.capra.generic.tracemodel/model/generictrace.xcore#/1/tracemodel ../../org.eclipse.app4mc.amalthea.model/model/amalthea.xcore#/1/model"
-    operationReflection="true" importOrganizing="true" decoration="Live" oSGiCompatible="true"
-    eclipsePlatformVersion="Juno" autoResizeProperties="true" autoExpandProperties="10"
-    findAction="true" expandAllAction="true" collapseAllAction="true" revertAction="true">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.criticalsoftware.panorama.failureLogic.traces/src"
+    creationIcons="false" modelPluginID="com.criticalsoftware.panorama.failureLogic.traces"
+    forceOverwrite="true" modelName="FailureTraceMetaModel" generateSchema="true"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.ecore.xcore.importer"
+    complianceLevel="8.0" copyrightFields="false" usedGenPackages="../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../com.criticalsoftware.panorama.failureLogic/failureLogic.genmodel#//failureLogic ../../org.eclipse.app4mc.amalthea.model/model/amalthea.xcore#/1/model ../../com.criticalsoftware.panorama.failureLogic/failureLogic.genmodel#//base"
+    operationReflection="true" importOrganizing="true" eclipsePlatformVersion="Juno">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/exporter/org.eclipse.xsd.ecore.exporter">
     <genAnnotations source="selectedPackages">
       <details key="http://www.eclipse.org/emf/2002/Ecore" value="Ecore.xsd"/>
@@ -25,9 +23,18 @@
   <modelPluginVariables>org.eclipse.emf.ecore.xcore.lib</modelPluginVariables>
   <genPackages prefix="FailureTraceMetaModel" basePackage="com.criticalsoftware.panorama.failurelogic"
       disposableProviderFactory="true" ecorePackage="FailureTraceMetaModel.ecore#/">
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//GenericTraceModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//GenericTraceModel/traces"/>
+    </genClasses>
     <genClasses ecoreClass="FailureTraceMetaModel.ecore#//FailureTraceModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//FailureTraceModel/propagateTraces"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//FailureTraceModel/safetyTraces"/>
+    </genClasses>
+    <genClasses ecoreClass="FailureTraceMetaModel.ecore#//RelatedTo">
+      <genFeatures property="Readonly" createChild="false" ecoreFeature="ecore:EAttribute FailureTraceMetaModel.ecore#//RelatedTo/ID"
+          get="return &lt;%org.eclipse.emf.ecore.util.EcoreUtil%>.generateUUID();"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FailureTraceMetaModel.ecore#//RelatedTo/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FailureTraceMetaModel.ecore#//RelatedTo/item"/>
     </genClasses>
     <genClasses ecoreClass="FailureTraceMetaModel.ecore#//PropagateTo">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FailureTraceMetaModel.ecore#//PropagateTo/failure"/>

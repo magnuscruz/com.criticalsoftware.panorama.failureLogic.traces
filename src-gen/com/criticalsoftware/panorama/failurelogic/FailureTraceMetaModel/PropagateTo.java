@@ -2,7 +2,7 @@
  */
 package com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel;
 
-import org.eclipse.capra.generic.tracemodel.RelatedTo;
+import com.criticalsoftware.panorama.failureLogic.Failure;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,29 +22,29 @@ import org.eclipse.capra.generic.tracemodel.RelatedTo;
  */
 public interface PropagateTo extends RelatedTo {
 	/**
-	 * Returns the value of the '<em><b>Failure</b></em>' attribute.
+	 * Returns the value of the '<em><b>Failure</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Failure</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Failure</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Failure</em>' attribute.
-	 * @see #setFailure(String)
+	 * @return the value of the '<em>Failure</em>' reference.
+	 * @see #setFailure(Failure)
 	 * @see com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.FailureTraceMetaModelPackage#getPropagateTo_Failure()
-	 * @model unique="false"
+	 * @model required="true"
 	 * @generated
 	 */
-	String getFailure();
+	Failure getFailure();
 
 	/**
-	 * Sets the value of the '{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.PropagateTo#getFailure <em>Failure</em>}' attribute.
+	 * Sets the value of the '{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.PropagateTo#getFailure <em>Failure</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Failure</em>' attribute.
+	 * @param value the new value of the '<em>Failure</em>' reference.
 	 * @see #getFailure()
 	 * @generated
 	 */
-	void setFailure(String value);
+	void setFailure(Failure value);
 
 } // PropagateTo

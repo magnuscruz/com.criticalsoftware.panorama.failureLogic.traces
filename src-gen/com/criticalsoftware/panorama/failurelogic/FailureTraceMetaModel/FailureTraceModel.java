@@ -2,8 +2,6 @@
  */
 package com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel;
 
-import org.eclipse.capra.generic.tracemodel.GenericTraceModel;
-
 import org.eclipse.emf.common.util.EList;
 
 /**

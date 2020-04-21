@@ -2,8 +2,6 @@
  */
 package com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.impl;
 
-import com.criticalsoftware.panorama.failureLogic.Failure;
-
 import com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.Failure2Process;
 import com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.FailureTraceMetaModelPackage;
 
@@ -24,23 +22,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.impl.Failure2ProcessImpl#getFailure <em>Failure</em>}</li>
  *   <li>{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.impl.Failure2ProcessImpl#getProcess <em>Process</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class Failure2ProcessImpl extends SafetyTraceabilityImpl implements Failure2Process {
-	/**
-	 * The cached value of the '{@link #getFailure() <em>Failure</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFailure()
-	 * @generated
-	 * @ordered
-	 */
-	protected Failure failure;
-
 	/**
 	 * The cached value of the '{@link #getProcess() <em>Process</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -68,44 +55,6 @@ public class Failure2ProcessImpl extends SafetyTraceabilityImpl implements Failu
 	@Override
 	protected EClass eStaticClass() {
 		return FailureTraceMetaModelPackage.Literals.FAILURE2_PROCESS;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Failure getFailure() {
-		if (failure != null && failure.eIsProxy()) {
-			InternalEObject oldFailure = (InternalEObject)failure;
-			failure = (Failure)eResolveProxy(oldFailure);
-			if (failure != oldFailure) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FailureTraceMetaModelPackage.FAILURE2_PROCESS__FAILURE, oldFailure, failure));
-			}
-		}
-		return failure;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Failure basicGetFailure() {
-		return failure;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFailure(Failure newFailure) {
-		Failure oldFailure = failure;
-		failure = newFailure;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FailureTraceMetaModelPackage.FAILURE2_PROCESS__FAILURE, oldFailure, failure));
 	}
 
 	/**
@@ -154,9 +103,6 @@ public class Failure2ProcessImpl extends SafetyTraceabilityImpl implements Failu
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case FailureTraceMetaModelPackage.FAILURE2_PROCESS__FAILURE:
-				if (resolve) return getFailure();
-				return basicGetFailure();
 			case FailureTraceMetaModelPackage.FAILURE2_PROCESS__PROCESS:
 				if (resolve) return getProcess();
 				return basicGetProcess();
@@ -172,9 +118,6 @@ public class Failure2ProcessImpl extends SafetyTraceabilityImpl implements Failu
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case FailureTraceMetaModelPackage.FAILURE2_PROCESS__FAILURE:
-				setFailure((Failure)newValue);
-				return;
 			case FailureTraceMetaModelPackage.FAILURE2_PROCESS__PROCESS:
 				setProcess((AbstractProcess)newValue);
 				return;
@@ -190,9 +133,6 @@ public class Failure2ProcessImpl extends SafetyTraceabilityImpl implements Failu
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case FailureTraceMetaModelPackage.FAILURE2_PROCESS__FAILURE:
-				setFailure((Failure)null);
-				return;
 			case FailureTraceMetaModelPackage.FAILURE2_PROCESS__PROCESS:
 				setProcess((AbstractProcess)null);
 				return;
@@ -208,8 +148,6 @@ public class Failure2ProcessImpl extends SafetyTraceabilityImpl implements Failu
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case FailureTraceMetaModelPackage.FAILURE2_PROCESS__FAILURE:
-				return failure != null;
 			case FailureTraceMetaModelPackage.FAILURE2_PROCESS__PROCESS:
 				return process != null;
 		}

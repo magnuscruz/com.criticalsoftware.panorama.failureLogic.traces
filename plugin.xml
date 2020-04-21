@@ -22,8 +22,21 @@
    <extension
          point="org.eclipse.capra.configuration.artifactMetaModel">
       <ArtifactMetaModelAdapter
-            class="com.criticalsoftware.panorama.failurelogic.traces.FailureMetaModelAdapter">
+            class="com.criticalsoftware.panorama.failurelogic.traces.FailureArtifactMetaModelAdapter">
       </ArtifactMetaModelAdapter>
+   </extension>
+   <extension
+         point="org.eclipse.capra.configuration.persistenceHandler">
+      <persistenceHandler
+            class="com.criticalsoftware.panorama.failurelogic.traces.FailureTracePersistenceAdapter">
+      </persistenceHandler>
+   </extension>
+   <extension
+         id="com.criticalsoftware.panorama.failurelogic.traces.FailureArtifactHandler"
+         point="org.eclipse.capra.configuration.artifactHandlers">
+      <artifactHandler
+            class="com.criticalsoftware.panorama.failurelogic.traces.FailureArtifactHandler">
+      </artifactHandler>
    </extension>
 
 </plugin>

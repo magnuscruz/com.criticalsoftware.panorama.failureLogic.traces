@@ -4,9 +4,6 @@ package com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.util;
 
 import com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.*;
 
-import org.eclipse.capra.generic.tracemodel.GenericTraceModel;
-import org.eclipse.capra.generic.tracemodel.RelatedTo;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -71,8 +68,16 @@ public class FailureTraceMetaModelAdapterFactory extends AdapterFactoryImpl {
 	protected FailureTraceMetaModelSwitch<Adapter> modelSwitch =
 		new FailureTraceMetaModelSwitch<Adapter>() {
 			@Override
+			public Adapter caseGenericTraceModel(GenericTraceModel object) {
+				return createGenericTraceModelAdapter();
+			}
+			@Override
 			public Adapter caseFailureTraceModel(FailureTraceModel object) {
 				return createFailureTraceModelAdapter();
+			}
+			@Override
+			public Adapter caseRelatedTo(RelatedTo object) {
+				return createRelatedToAdapter();
 			}
 			@Override
 			public Adapter casePropagateTo(PropagateTo object) {
@@ -107,6 +112,10 @@ public class FailureTraceMetaModelAdapterFactory extends AdapterFactoryImpl {
 				return createFailure2ConstraintAdapter();
 			}
 			@Override
+			public Adapter caseFailure2Component(Failure2Component object) {
+				return createFailure2ComponentAdapter();
+			}
+			@Override
 			public Adapter caseFailureModel2Task(FailureModel2Task object) {
 				return createFailureModel2TaskAdapter();
 			}
@@ -115,20 +124,8 @@ public class FailureTraceMetaModelAdapterFactory extends AdapterFactoryImpl {
 				return createFailureModel2ConstraintsModelAdapter();
 			}
 			@Override
-			public Adapter caseFailure2Component(Failure2Component object) {
-				return createFailure2ComponentAdapter();
-			}
-			@Override
 			public Adapter caseFailureModel2Component(FailureModel2Component object) {
 				return createFailureModel2ComponentAdapter();
-			}
-			@Override
-			public Adapter caseGenericTraceModel(GenericTraceModel object) {
-				return createGenericTraceModelAdapter();
-			}
-			@Override
-			public Adapter caseRelatedTo(RelatedTo object) {
-				return createRelatedToAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -151,6 +148,20 @@ public class FailureTraceMetaModelAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.GenericTraceModel <em>Generic Trace Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.GenericTraceModel
+	 * @generated
+	 */
+	public Adapter createGenericTraceModelAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.FailureTraceModel <em>Failure Trace Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -161,6 +172,20 @@ public class FailureTraceMetaModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFailureTraceModelAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.RelatedTo <em>Related To</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.RelatedTo
+	 * @generated
+	 */
+	public Adapter createRelatedToAdapter() {
 		return null;
 	}
 
@@ -277,6 +302,20 @@ public class FailureTraceMetaModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.Failure2Component <em>Failure2 Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.Failure2Component
+	 * @generated
+	 */
+	public Adapter createFailure2ComponentAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.FailureModel2Task <em>Failure Model2 Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -305,20 +344,6 @@ public class FailureTraceMetaModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.Failure2Component <em>Failure2 Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.Failure2Component
-	 * @generated
-	 */
-	public Adapter createFailure2ComponentAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.FailureModel2Component <em>Failure Model2 Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -329,34 +354,6 @@ public class FailureTraceMetaModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFailureModel2ComponentAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.capra.generic.tracemodel.GenericTraceModel <em>Generic Trace Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.capra.generic.tracemodel.GenericTraceModel
-	 * @generated
-	 */
-	public Adapter createGenericTraceModelAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link org.eclipse.capra.generic.tracemodel.RelatedTo <em>Related To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see org.eclipse.capra.generic.tracemodel.RelatedTo
-	 * @generated
-	 */
-	public Adapter createRelatedToAdapter() {
 		return null;
 	}
 

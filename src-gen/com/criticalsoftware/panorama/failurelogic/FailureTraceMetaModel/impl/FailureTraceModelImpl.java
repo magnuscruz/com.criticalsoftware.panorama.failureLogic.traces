@@ -9,8 +9,6 @@ import com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.SafetyTr
 
 import java.util.Collection;
 
-import org.eclipse.capra.generic.tracemodel.impl.GenericTraceModelImpl;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;

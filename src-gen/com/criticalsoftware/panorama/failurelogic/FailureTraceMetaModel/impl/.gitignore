@@ -1,0 +1,17 @@
+/Failure2ComponentImpl.java
+/Failure2ConstraintImpl.java
+/Failure2EventImpl.java
+/Failure2LabelImpl.java
+/Failure2ProcessImpl.java
+/Failure2RunnableImpl.java
+/Failure2SemaphoreImpl.java
+/FailureModel2ComponentImpl.java
+/FailureModel2ConstraintsModelImpl.java
+/FailureModel2TaskImpl.java
+/FailureTraceMetaModelFactoryImpl.java
+/FailureTraceMetaModelPackageImpl.java
+/FailureTraceModelImpl.java
+/GenericTraceModelImpl.java
+/PropagateToImpl.java
+/RelatedToImpl.java
+/SafetyTraceabilityImpl.java
