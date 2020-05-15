@@ -19,8 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.criticalsoftware.panorama.base.BaseElement;
 import com.criticalsoftware.panorama.failureLogic.Failure;
@@ -40,7 +38,7 @@ import com.criticalsoftware.panorama.failurelogic.FailureTraceMetaModel.SafetyTr
 
 public class FailureTraceMetaModelAdapter extends AbstractMetaModelAdapter implements TraceMetaModelAdapter {
 
-	private static final Logger LOG = LoggerFactory.getLogger(FailureTraceMetaModelAdapter.class);
+//	private static final Logger LOG = LoggerFactory.getLogger(FailureTraceMetaModelAdapter.class);
 
 	private static final int DEFAULT_INITIAL_TRANSITIVITY_DEPTH = 1;
 
@@ -229,12 +227,12 @@ public class FailureTraceMetaModelAdapter extends AbstractMetaModelAdapter imple
 
 		if (element instanceof RelatedTo) {
 			RelatedTo trace = (RelatedTo) element;
-			connections.add(new Connection(element, trace.getItem(), trace));
+			connections.add(new FailureLogicConnection(element, trace.getItem(), trace));
 		} else {
 			for (RelatedTo trace : traces) {
 				for (EObject item : trace.getItem()) {
 					if (EcoreUtil.equals(item, element)) {
-						connections.add(new Connection(element, trace.getItem(), trace));
+						connections.add(new FailureLogicConnection(element, trace.getItem(), trace));
 					}
 				}
 			}
@@ -253,12 +251,12 @@ public class FailureTraceMetaModelAdapter extends AbstractMetaModelAdapter imple
 				.contains(FailureTraceMetaModelPackage.eINSTANCE.getRelatedTo().getName())) {
 			if (element instanceof RelatedTo) {
 				RelatedTo trace = (RelatedTo) element;
-				connections.add(new Connection(element, trace.getItem(), trace));
+				connections.add(new FailureLogicConnection(element, trace.getItem(), trace));
 			} else {
 				for (RelatedTo trace : traces) {
 					for (EObject item : trace.getItem()) {
 						if (EcoreUtil.equals(item, element)) {
-							connections.add(new Connection(element, trace.getItem(), trace));
+							connections.add(new FailureLogicConnection(element, trace.getItem(), trace));
 						}
 					}
 				}
@@ -271,12 +269,12 @@ public class FailureTraceMetaModelAdapter extends AbstractMetaModelAdapter imple
 				.contains(FailureTraceMetaModelPackage.eINSTANCE.getPropagateTo().getName())) {
 			if (element instanceof PropagateTo) {
 				PropagateTo trace = (PropagateTo) element;
-				connections.add(new Connection(element, trace.getItem(), trace));
+				connections.add(new FailureLogicConnection(element, trace.getItem(), trace));
 			} else {
 				for (PropagateTo trace : propTraces) {
 					for (EObject item : trace.getItem()) {
 						if (EcoreUtil.equals(item, element)) {
-							connections.add(new Connection(element, trace.getItem(), trace));
+							connections.add(new FailureLogicConnection(element, trace.getItem(), trace));
 						}
 					}
 				}
@@ -297,7 +295,7 @@ public class FailureTraceMetaModelAdapter extends AbstractMetaModelAdapter imple
 				}  else if (trace instanceof Failure2Runnable) {
 					list.add(((Failure2Runnable)trace).getRunnable());
 				} 
-				connections.add(new Connection(element, list, trace));
+				connections.add(new FailureLogicConnection(element, list, trace));
 			} else {
 				for (SafetyTraceability trace : safeTraces) {
 					BasicEList<EObject> list = new BasicEList<>();
@@ -309,12 +307,16 @@ public class FailureTraceMetaModelAdapter extends AbstractMetaModelAdapter imple
 					}  else if (trace instanceof Failure2Runnable) {
 						list.add(((Failure2Runnable)trace).getRunnable());
 					} 
-					connections.add(new Connection(element, list, trace));
+					connections.add(new FailureLogicConnection(element, list, trace));
 				}
 			}
 		}
 		
-		if (element instanceof Failure || element instanceof Cause) {
+		if (element instanceof Gate) {
+			buildFaulTreeTraces(connections, (Gate) element);
+//		} else if (element instanceof Cause) {
+//			buildFaulTreeTraces(connections, (Cause) element);
+		} else if (element instanceof Failure || element instanceof Cause) {
 			EObject eContainer = ((BaseElement)element).eContainer();
 			if (eContainer instanceof FaultTree) {
 				FaultTree faultTree = (FaultTree)eContainer;
@@ -326,26 +328,54 @@ public class FailureTraceMetaModelAdapter extends AbstractMetaModelAdapter imple
 		return connections;
 	}
 
+	private void buildFaulTreeTraces(List<Connection> connections, Gate gate) {
+		EList<Cause> causes = gate.getCauses();
+		Failure failure = gate.getFailure();
+		BasicEList<EObject> list = new BasicEList<>();
+		list.addAll(causes);
+		list.add(failure);
+		PropagateTo trace = (PropagateTo) FailureTraceMetaModelFactory.eINSTANCE.create(
+				FailureTraceMetaModelPackage.eINSTANCE.getPropagateTo());
+		putConnection(connections, gate, list, trace, null);
+	}
+	
+	private void buildFaulTreeTraces(List<Connection> connections, Cause cause) {
+		Failure failure = cause.getFailure();
+		BasicEList<EObject> list = new BasicEList<>();
+		list.add(failure);
+		PropagateTo trace = (PropagateTo) FailureTraceMetaModelFactory.eINSTANCE.create(
+				FailureTraceMetaModelPackage.eINSTANCE.getPropagateTo());
+		putConnection(connections, cause, list, trace, null);
+	}
+	
 	private void buildFaulTreeTraces(List<Connection> connections, FaultTree faultTree) {
 		EList<Cause> causes = faultTree.getCauses();
 		BasicEList<EObject> list = new BasicEList<>();
 		list.addAll(causes);
-		PropagateTo trace = (PropagateTo) FailureTraceMetaModelFactory.eINSTANCE.create(FailureTraceMetaModelPackage.eINSTANCE.getPropagateTo());
+		PropagateTo trace = (PropagateTo) FailureTraceMetaModelFactory.eINSTANCE.create(
+				FailureTraceMetaModelPackage.eINSTANCE.getPropagateTo());
 		BaseElement output = extractOutput(list, trace);
+		if (output != null) {
+			list.clear();
+			if (output instanceof Gate)
+				list.addAll(((Gate)output).getCauses());
+		}
 		putConnection(connections, faultTree, list, trace, output);
 	}
 
-	private void putConnection(List<Connection> connections, EObject node, BasicEList<EObject> list, PropagateTo trace,
-			BaseElement output) {
-		list.clear();
+	private void putConnection(List<Connection> connections, BaseElement node,
+			BasicEList<EObject> list, PropagateTo trace, BaseElement output) {
+//		list.clear();
 		if (output != null) {
 			list.add(output);
+			trace.setName(output.getName());
 			trace.getItem().add(output);
-			connections.add(new Connection(output, list, trace));
+			connections.add(new FailureLogicConnection(output, list, trace));
 		} else {
 			list.add(node);
+			trace.setName(node.getName());
 			trace.getItem().add(node);
-			connections.add(new Connection(node, list, trace));
+			connections.add(new FailureLogicConnection(node, list, trace));
 		}
 	}
 
@@ -387,7 +417,7 @@ public class FailureTraceMetaModelAdapter extends AbstractMetaModelAdapter imple
 			allItems.addAll(trace.getItem());
 			EObject origin = allItems.get(0);
 			allItems.remove(0);
-			allLinks.add(new Connection(origin, allItems, trace));
+			allLinks.add(new FailureLogicConnection(origin, allItems, trace));
 		}
 		
 		for (RelatedTo trace : model.getPropagateTraces()) {
@@ -395,7 +425,7 @@ public class FailureTraceMetaModelAdapter extends AbstractMetaModelAdapter imple
 			allItems.addAll(trace.getItem());
 			EObject origin = allItems.get(0);
 			allItems.remove(0);
-			allLinks.add(new Connection(origin, allItems, trace));
+			allLinks.add(new FailureLogicConnection(origin, allItems, trace));
 		}
 		
 		for (SafetyTraceability trace : model.getSafetyTraces()) {
@@ -407,7 +437,7 @@ public class FailureTraceMetaModelAdapter extends AbstractMetaModelAdapter imple
 			}  else if (trace instanceof Failure2Runnable) {
 				list.add(((Failure2Runnable)trace).getRunnable());
 			}
-			allLinks.add(new Connection(trace.getFailure(), list, trace));
+			allLinks.add(new FailureLogicConnection(trace.getFailure(), list, trace));
 		}
 		return allLinks;
 	}

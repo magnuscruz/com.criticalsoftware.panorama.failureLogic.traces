@@ -27,8 +27,12 @@ public class FailureArtifactHandler extends AbstractArtifactHandler<BaseElement>
 
 	@Override
 	public String getDisplayName(BaseElement artifact) {
-		EObject sel = artifact;
-		return artifact.getName();//org.eclipse.capra.core.helpers.EMFHelper.getIdentifier(sel); // TODO
+		String name = artifact.getName();
+		if (name == null) {
+			name = artifact.getClass().getSimpleName().replaceAll("Impl", "");
+		}
+			
+		return name;
 	}
 
 	@Override

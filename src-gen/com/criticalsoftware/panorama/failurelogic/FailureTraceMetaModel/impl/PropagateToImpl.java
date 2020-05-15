@@ -28,6 +28,31 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class PropagateToImpl extends RelatedToImpl implements PropagateTo {
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((failure == null) ? 0 : failure.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PropagateToImpl other = (PropagateToImpl) obj;
+		if (failure == null) {
+			if (other.failure != null)
+				return false;
+		} else if (!failure.equals(other.failure))
+			return false;
+		return true;
+	}
+
 	/**
 	 * The cached value of the '{@link #getFailure() <em>Failure</em>}' reference.
 	 * <!-- begin-user-doc -->
